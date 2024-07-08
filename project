@@ -1,0 +1,94 @@
+def adddata():
+    sroll=input("enter the roll no ")
+    sname=input("enter the name ")    
+    smarks=input("enter the marks ")
+    
+    roll.append(sroll)
+    name.append(sname)
+    marks.append(smarks)
+    
+
+def viewdata():
+   print("rollno \t Name \t Marks")
+   for i in range(len(roll)):
+       print(roll[i],"\t",name[i],"\t",marks[i])
+
+def updatedata():
+    froll=input("enter the find roll ")
+    for i in range(len(roll)):
+        if(roll[i]==froll):
+         uroll=input("enter the roll no to update  ")
+         uname=input("enter the name to update ")    
+         umarks=input("enter the marks  to update ")   
+
+         roll[i]=uroll
+         name[i]=uname
+         marks[i]=umarks
+
+
+def deletedata():
+    droll=input("enter the no to delete ")
+    for i in range(len(roll)):
+        if(roll[i]==droll):
+            roll.remove(roll[i])
+            name.remove(name[i])
+            marks.remove(marks[i])
+            break
+
+
+
+roll=[]
+name=[]
+marks=[]
+
+
+count=3
+while(count!=0):
+    uname=input("enter the user name =")
+    upass=input("enter the password = ")
+    if(uname=="admin" and  upass=="1111"):
+        print("both credential correct")
+        count=1
+        cnt=1
+        while(cnt!=0):
+            print("1.add \n 2. view \n 3.update \n 4.delete \n 5. exit ")
+            ch=int(input("enter your data = "))
+            if ch==1:
+                print("add data ")
+                adddata()
+
+            elif ch==2:
+                 print("read the data ")
+                 viewdata()
+
+            elif ch==3:
+                 print("update the data ")
+                 updatedata()
+
+            elif ch==4 :
+                 print("delete the data")
+                 deletedata()
+
+                
+            elif ch==5:
+                print("exit")
+                cnt=0              
+         
+
+    elif(uname!="admin" and  upass!="1111"):
+        print("both login credential incorrect")
+    
+    elif(uname!="admin"):
+        print(" username not correct ")
+
+    elif(upass!="1111"):
+        print("password incorect")
+
+    count-=1
+    print("remaining attempt = ",count)         
+
+
+
+
+
+        
